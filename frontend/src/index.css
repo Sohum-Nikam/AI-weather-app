@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Minimalist Handcrafted Light Theme */
+  --bg-color: #f7f9fc;
+  --text-main: #1a1a1a;
+  --text-muted: #666666;
+  
+  --card-bg: #fff;
+  --card-border: rgba(0, 0, 0, 0.05); /* very subtle, clean */
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  
+  /* Color Theme Present Default (Neutral) */
+  --theme-accent: #3b82f6;
+  
+  --backdrop-blur: blur(8px);
+}
+
+[data-theme='dark'] {
+  /* Mimicking Night View Window Realistic */
+  --bg-color: #121418;
+  --text-main: #f5f5f5;
+  --text-muted: #a0a0a0;
+  
+  --card-bg: #000;
+  --card-border: rgba(255, 255, 255, 0.1); /* thin white outline */
+  --card-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* We use Inter for everything else for cleanliness, but override Temp to Arial Light explicitly in inline/class */
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  transition: background-color 0.8s ease, color 0.8s ease;
+  overflow-x: hidden;
+}
+
+/* 
+  Full page glass background that subtly blurs content behind it.
+  Defaulting to a soft neutral tone in light, deep greyish in dark.
+*/
+#global-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: var(--theme-accent);
+  opacity: 0.05; /* Just a very subtle hue overlay representing the theme color */
+  transition: background-color 0.8s ease;
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+}
+
+[data-theme='dark'] #global-backdrop {
+  opacity: 0.1;
+}
+
+.realistic-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 16px;
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+/* Scrollbar overriding */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 8px;
+  opacity: 0.3;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+input {
+  font-family: inherit;
+  outline: none;
+}

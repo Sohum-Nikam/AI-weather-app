@@ -1,0 +1,47 @@
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.detail-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: var(--bg-color); /* Matches the outer background for a cutout effect */
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+}
+
+.detail-label-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.detail-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+}
+
+.detail-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.detail-subtext {
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
